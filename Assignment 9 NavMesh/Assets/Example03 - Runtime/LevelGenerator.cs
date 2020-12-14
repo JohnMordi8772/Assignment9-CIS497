@@ -1,5 +1,10 @@
+/*
+ * John Mordi
+ * Assignment 9
+ * Randomly generates a level layout and bakes a NavMesh for it
+ */
 using UnityEngine;
-
+using UnityEngine.AI;
 public class LevelGenerator : MonoBehaviour {
 
 	public int width = 10;
@@ -10,9 +15,13 @@ public class LevelGenerator : MonoBehaviour {
 
 	private bool playerSpawned = false;
 
+    public NavMeshSurface surface;
+
 	// Use this for initialization
 	void Start () {
 		GenerateLevel();
+
+        surface.BuildNavMesh();
 	}
 	
 	// Create a grid based level
